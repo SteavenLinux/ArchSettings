@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = sway
+
+[Action]
+Description = Add --unsupported-gpu to sway.desktop Exec line
+When = PostTransaction
+Exec = /bin/sh -c "sed -i 's|^Exec=sway$|Exec=sway --unsupported-gpu|' /usr/share/wayland-sessions/sway.desktop"
